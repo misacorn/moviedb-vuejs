@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="status === 'Ready'">
     <Header :title="title" />
     <img alt="Vue logo" src="./assets/logo.png" />
-    <ul>
-      <li :key="index" v-for="(item, index) in cats">{{item}}</li>
-      <li :key="person.id" v-for="person in human">{{person.name}}</li>
-      <li :key="index" v-for="(value, key, index) in home">{{key}}: {{value}}</li>
-    </ul>
-    <HelloWorld :key="person.id" v-for="person in human" msg="Welcome to Your Vue.js App" />
-    <!-- this is going to render the components twice -->
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+  </div>
+  <div v-else-if="status === 'Loading'">
+    <h1>Loading</h1>
+  </div>
+  <div v-else>
+    <h1>Error</h1>
   </div>
 </template>
 
@@ -21,19 +21,7 @@ export default {
   data() {
     return {
       title: "Vue Movie DB",
-      cats: ["Salsa", "Mona", "Titi"],
-      human: [
-        {
-          name: "Misa",
-          id: "jksse"
-        },
-        { name: "Tien", id: "kjserk" }
-      ],
-      home: {
-        add: "Antti Korpin tie 4C",
-        location: "Koskela",
-        city: "Helsinki"
-      }
+      status: "Ready"
     };
   },
   components: {
