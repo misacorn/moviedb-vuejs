@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li :key="movie" v-for="movie in movies">
-      <Movie :movie="movie"/>
+      <Movie :movie="movie" />
     </li>
   </ul>
 </template>
@@ -35,4 +35,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ul {
+  display: grid;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(6, 1fr);
+}
 </style>

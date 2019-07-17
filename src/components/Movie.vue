@@ -19,4 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img {
+  box-shadow: 0 0 35px black;
+}
 </style>
