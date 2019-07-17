@@ -1,8 +1,14 @@
 <template>
-  <div>{{movies[0].original_title}}</div>
+  <ul>
+    <li :key="movie" v-for="movie in movies">
+      <Movie :movie="movie"/>
+    </li>
+  </ul>
 </template>
 
 <script>
+import Movie from "./Movie";
+
 export default {
   name: "MovieList",
   data() {
@@ -23,7 +29,8 @@ export default {
         console.log(e);
       }
     }
-  }
+  },
+  components: { Movie }
 };
 </script>
 
