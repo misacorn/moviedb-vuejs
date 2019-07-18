@@ -1,14 +1,29 @@
 <template>
-  <div>{{movie.original_title}}</div>
+  <div class="movie-wrapper" :style="styles">
+    <div class="movie-info">
+      <h1>{{movie.original_title}}</h1>
+      <h3>Release Date: {{movie.release_date}}</h3>
+      <p>{{movie.overview}}</p>
+    </div>
+  </div>
 </template>
 
 <script>
+const BACKDROP_PATH = "http://image.tmdb.org/t/p/w1280";
+
 export default {
   data() {
     return { movie: {} };
   },
   created: function() {
     this.fetchData();
+  },
+  computed: {
+    styles() {
+      return {
+        background: `url(${BACKDROP_PATH}/${this.movie.backdrop_path}) no-repeat`
+      };
+    }
   },
   methods: {
     fetchData: async function() {
@@ -27,4 +42,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.movie-wrapper {
+  position: relative;
+  padding-top: 90vh;
+  margin-left: 5vw;
+  padding-right: 6vw;
+  background-size: cover;
+}
+.movie-info {
+  background: white;
+  color: #222;
+  padding: 2rem 10%;
+}
 </style>

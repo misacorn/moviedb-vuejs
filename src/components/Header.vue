@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1>{{newTitle}}</h1>
+    <router-link to="/">
+      <h1 color="white">{{title}}</h1>
+    </router-link>
   </header>
 </template>
 
@@ -9,18 +11,6 @@ export default {
   name: "Header",
   props: {
     title: String
-  },
-  data() {
-    return { name: "U Tien Xinh" };
-  },
-  computed: {
-    newTitle: function() {
-      if (this.title === "hello") {
-        return this.title;
-      } else {
-        return this.name;
-      }
-    }
   }
 };
 </script>
@@ -29,7 +19,6 @@ export default {
 header {
   background-color: #111;
   padding: 20px;
-  color: white;
 }
 h1 {
   margin: 0;
