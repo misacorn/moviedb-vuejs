@@ -1,8 +1,10 @@
 <template>
   <header>
-    <router-link to="/">
-      <h1 color="white">{{title}}</h1>
-    </router-link>
+    <h1>
+      <router-link to="/">{{title}}</router-link>
+    </h1>
+    <h1 v-if="show">Animated</h1>
+    <button @click="show = !show">Show/Hide</button>
   </header>
 </template>
 
@@ -11,6 +13,9 @@ export default {
   name: "Header",
   props: {
     title: String
+  },
+  data() {
+    return { show: false };
   }
 };
 </script>
